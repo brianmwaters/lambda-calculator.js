@@ -1,0 +1,32 @@
+# Grammar for generating valid lambda calculus strings, to fuzz the parser
+
+# For use with the grammar-based fuzzer, blab (https://github.com/aoh/blab.git)
+
+# You can run the output through a permutation-based fuzzer like radamsa
+# (https://github.com/aoh/radamsa.git) to generate invalid strings.
+
+lambda = lambda.expression
+
+lambda {
+	expression = (closed-expression-list | open-expression-list)+
+
+	closed-expression = open-paren expression close-paren
+	closed-expression-list = closed-expression (ws closed-expression)*
+
+	open-expression = variable | abstraction
+	open-expression-list = open-expression (WS open-expression)*
+
+	abstraction = lambda param-list dot expression
+
+	param-list = param (WS param)*
+	param = variable
+
+	variable = [a-zA-Z][a-zA-Z0-9]*
+	lambda = "λ" | "\\"
+	dot = "."
+	open-paren = "("
+	close-paren = ")"
+
+	WS = (" " | "\t" | "\n" | "\r\n")+ # required whitespace
+	ws = WS | "" # optional whitespace
+}

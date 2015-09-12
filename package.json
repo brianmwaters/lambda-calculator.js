@@ -1,0 +1,47 @@
+{
+    "name": "lambda-calculator.js",
+    "version": "1.0.0",
+    "description": "An implementation of the world's oldest functional programming language",
+    "keywords": [
+        "interpreter",
+        "lambda",
+        "language"
+    ],
+
+    "author": {
+        "name": "Brian M. Waters",
+        "email": "brian@brianmwaters.net",
+        "url:": "https://brianmwaters.net/"
+    },
+    "license": "WTFPL",
+
+    "devDependencies": {
+        "chai": "3",
+        "coffee-script": "1",
+        "istanbul": "0",
+        "jshint": "2",
+        "mocha": "2"
+    },
+
+    "main": "lib/index.js",
+    "directories": {
+        "lib": "lib",
+        "test": "test"
+    },
+
+    "bin": {
+        "lambda-calculator.js": "bin/lambda-calculator.js"
+    },
+    "scripts": {
+        "test": "make test"
+    },
+
+    "homepage": "https://github.com/brianmwaters/lambda-calculator.js",
+    "bugs": {
+        "url": "https://github.com/brianmwaters/lambda-calculator.js/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/brianmwaters/lambda-calculator.js.git"
+    }
+}
