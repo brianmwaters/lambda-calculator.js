@@ -12,13 +12,17 @@ SRC = cli.js index.js lib/*.js
 all :
 
 .PHONY: test
-test :
+test : install-deps
 	@$(ISTANBUL) cover $(MOCHA) -- --compilers coffee:coffee-script --require coffee-script/register test/*.coffee ; true
 	@$(JSHINT) $(SRC) ; true
 
+.PHONY: install-deps
+install-deps :
+	npm install
+
 .PHONY: install
 install :
-	npm install -g .
+	npm install -g
 
 .PHONY: uninstall
 uninstall :
