@@ -13,8 +13,8 @@ all :
 
 .PHONY: test
 test : install-deps
-	@$(ISTANBUL) cover $(MOCHA) -- --compilers coffee:coffee-script --require coffee-script/register test/*.coffee ; true
-	@$(JSHINT) $(SRC) ; true
+	$(JSHINT) $(SRC)
+	$(ISTANBUL) cover $(MOCHA) -- --compilers coffee:coffee-script --require coffee-script/register test/*.coffee
 
 .PHONY: install-deps
 install-deps :
