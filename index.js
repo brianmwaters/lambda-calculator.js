@@ -14,7 +14,7 @@ module.exports = {
             evaluated;
 
         parsed = parser.parse(input);
-        evaluated = parsed.eval(environment.empty);
+        evaluated = parsed.eval(new environment.Environment());
 
         return evaluated.toString();
     }

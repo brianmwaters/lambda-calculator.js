@@ -17,7 +17,7 @@ ex = vr 'ex'
 why = vr 'why'
 
 # An empty environment
-empty = environment.empty
+empty = new environment.Environment
 nonempty = empty
 		.extend('x', ex)
         .extend('y', why)
